@@ -5,9 +5,9 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
-public class BookActivity extends AppCompatActivity {
+import static fr.android.androidexercises.Constants.BOOK;
 
-    private static final String BOOK = "BOOK";
+public class BookActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
