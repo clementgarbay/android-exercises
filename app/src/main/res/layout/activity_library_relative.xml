@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="20dp">
@@ -20,7 +19,7 @@
         android:background="@color/pink"
         android:padding="10dp"
         android:text="@string/right_text"
-        app:layout_constraintRight_toRightOf="parent"
+        android:layout_alignParentEnd="true"
     />
 
     <TextView
@@ -29,7 +28,7 @@
         android:background="@color/purple"
         android:padding="10dp"
         android:text="@string/below_left_text"
-        app:layout_constraintTop_toBottomOf="@id/leftText"
+        android:layout_below="@id/leftText"
     />
 
     <TextView
@@ -38,10 +37,7 @@
         android:background="@color/deep_purple"
         android:padding="10dp"
         android:text="@string/center_text"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_centerInParent="true"
     />
 
     <TextView
@@ -50,9 +46,9 @@
         android:background="@color/blue"
         android:padding="10dp"
         android:text="@string/above_bottom_center_text"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/bottomCenterText"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@id/bottomCenterText"
+
     />
 
     <TextView
@@ -62,9 +58,8 @@
         android:background="@color/indigo"
         android:padding="10dp"
         android:text="@string/bottom_center_text"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
     />
 
-</android.support.constraint.ConstraintLayout>
+</RelativeLayout>
