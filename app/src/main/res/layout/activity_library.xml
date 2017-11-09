@@ -7,7 +7,7 @@
     android:orientation="vertical"
     tools:context=".Library">
 
-    <ListView
+    <android.support.v7.widget.RecyclerView
         android:id="@+id/bookListView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
