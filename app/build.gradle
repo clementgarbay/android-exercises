@@ -29,3 +29,6 @@ dependencies {
             "com.android.support:design:$support_version"
     )
 }
+repositories {
+    mavenCentral()
+}
