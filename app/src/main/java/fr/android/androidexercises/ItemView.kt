@@ -1,5 +1,5 @@
 package fr.android.androidexercises
 
-interface ItemView<T> {
+interface ItemView<in T> {
     fun bind(element: T)
 }

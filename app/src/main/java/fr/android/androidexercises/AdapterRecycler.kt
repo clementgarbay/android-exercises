@@ -9,13 +9,16 @@ import android.view.ViewGroup
 class AdapterRecycler<T>(context: Context, private val elements: List<T>) : RecyclerView.Adapter<AdapterRecycler<T>.MyViewHolder>() {
     private val inflater: LayoutInflater = LayoutInflater.from(context)
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        return MyViewHolder(inflater.inflate(R.layout.custom_view_item_book, parent, false))
-    }
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder =
+        MyViewHolder(inflater.inflate(R.layout.custom_view_item_book, parent, false))
 
-    override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: MyViewHolder, position: Int) =
         (holder.itemView as ItemView<T>).bind(elements[position])
-    }
+//        when (holder.itemView) {
+//            is BookItemView -> holder.itemView.bind(elements[position] as Book)
+//            // is ItemView<*> -> holder.itemView.bind(elements[position] as Book)
+//            else -> {}
+//        }
 
     override fun getItemCount(): Int = elements.size
 
