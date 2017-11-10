@@ -7,8 +7,13 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.TextView
+import java.util.*
+import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
 
 class LibraryActivity : AppCompatActivity() {
+
+    private val RANDOM = Random()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -16,7 +21,13 @@ class LibraryActivity : AppCompatActivity() {
         val toolbar = findViewById<View>(R.id.toolbar) as Toolbar
 
         val messageTextView = findViewById<View>(R.id.messageTextView) as TextView
-        // TODO call setText() on messageTextView
+        messageTextView.setText(R.string.welcome) // ou messageTextView.text = ''
+
+        val books = getBooks()
+
+        val recyclerView = findViewById<RecyclerView>(R.id.bookListView)
+        recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView.adapter = AdapterRecycler(this, books)
 
         setSupportActionBar(toolbar)
     }
@@ -34,5 +45,11 @@ class LibraryActivity : AppCompatActivity() {
         val id = item.itemId
 
         return if (id == R.id.action_settings) true else super.onOptionsItemSelected(item)
+    }
+
+    private fun getBooks(): List<Book> {
+        return (0..99).map {
+            Book("Garry Potier Tome $it", RANDOM.nextInt(30))
+        }
     }
 }
