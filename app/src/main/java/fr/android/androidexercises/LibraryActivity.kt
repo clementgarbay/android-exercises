@@ -1,5 +1,6 @@
 package fr.android.androidexercises
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import java.util.*
@@ -15,6 +16,8 @@ class LibraryActivity : AppCompatActivity() {
         val recyclerView = findViewById<RecyclerView>(R.id.bookListView)
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = AdapterRecycler(this, getBooks())
+
+        startService(Intent(this, JobService::class.java))
     }
 
     private fun getBooks(): List<Book> = (0..99).map {
