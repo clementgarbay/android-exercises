@@ -11,7 +11,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "fr.android.androidexercises"
+        applicationId "fr.clementgarbay.android"
         minSdkVersion 19
         targetSdkVersion 26
         versionCode 1

@@ -1,13 +1,13 @@
-package fr.android.androidexercises
+package fr.clementgarbay.android
 
 import android.content.res.Configuration
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import fr.android.androidexercises.fragments.BookDetailsFragment
-import fr.android.androidexercises.fragments.BookDetailsFragment.Companion.BOOK_KEY
-import fr.android.androidexercises.fragments.BookListFragment
-import fr.android.androidexercises.listeners.OnItemClickedListener
-import fr.android.androidexercises.models.Book
+import fr.clementgarbay.android.fragments.BookDetailsFragment
+import fr.clementgarbay.android.fragments.BookDetailsFragment.Companion.BOOK_KEY
+import fr.clementgarbay.android.fragments.BookListFragment
+import fr.clementgarbay.android.listeners.OnItemClickedListener
+import fr.clementgarbay.android.models.Book
 import timber.log.Timber
 
 /**

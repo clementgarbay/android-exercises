@@ -1,6 +1,6 @@
-package fr.android.androidexercises.services
+package fr.clementgarbay.android.services
 
-import fr.android.androidexercises.models.Book
+import fr.clementgarbay.android.models.Book
 import retrofit2.Call
 import retrofit2.http.GET
 

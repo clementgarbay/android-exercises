@@ -1,10 +1,10 @@
-package fr.android.androidexercises.views
+package fr.clementgarbay.android.views
 
 import android.content.Context
 import android.util.AttributeSet
 import android.widget.LinearLayout
 import com.bumptech.glide.Glide
-import fr.android.androidexercises.models.Book
+import fr.clementgarbay.android.models.Book
 import kotlinx.android.synthetic.main.book_item_view.view.*
 
 /**

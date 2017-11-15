@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest
-    package="fr.android.androidexercises"
+    package="fr.clementgarbay.android"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -11,7 +11,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme">
         <activity
-            android:name="fr.android.androidexercises.LibraryActivity"
+            android:name="fr.clementgarbay.android.LibraryActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme">
             <intent-filter>

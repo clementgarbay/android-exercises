@@ -1,13 +1,13 @@
-package fr.android.androidexercises.adapters
+package fr.clementgarbay.android.adapters
 
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import fr.android.androidexercises.R
-import fr.android.androidexercises.listeners.OnItemClickedListener
-import fr.android.androidexercises.models.Book
-import fr.android.androidexercises.views.BookItemView
+import fr.clementgarbay.android.R
+import fr.clementgarbay.android.listeners.OnItemClickedListener
+import fr.clementgarbay.android.models.Book
+import fr.clementgarbay.android.views.BookItemView
 
 /**
  * @author Clément Garbay <contact@clementgarbay.fr>

@@ -1,4 +1,4 @@
-package fr.android.androidexercises.fragments
+package fr.clementgarbay.android.fragments
 
 import android.content.Context
 import android.os.Bundle
@@ -8,11 +8,11 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import fr.android.androidexercises.R
-import fr.android.androidexercises.adapters.BookAdapterRecycler
-import fr.android.androidexercises.listeners.OnItemClickedListener
-import fr.android.androidexercises.models.Book
-import fr.android.androidexercises.services.BooksApi
+import fr.clementgarbay.android.R
+import fr.clementgarbay.android.adapters.BookAdapterRecycler
+import fr.clementgarbay.android.listeners.OnItemClickedListener
+import fr.clementgarbay.android.models.Book
+import fr.clementgarbay.android.services.BooksApi
 
 /**
  * @author Clément Garbay <contact@clementgarbay.fr>

@@ -1,4 +1,4 @@
-package fr.android.androidexercises.models
+package fr.clementgarbay.android.models
 
 import android.os.Parcel
 import android.os.Parcelable
