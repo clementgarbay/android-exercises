@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<fr.android.androidexercises.BookItemView
+<fr.android.androidexercises.views.BookItemView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,17 +8,18 @@
     android:padding="10dp">
 
     <ImageView
-        android:layout_width="wrap_content"
+        android:id="@+id/item_coverImageView"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_launcher"
         tools:ignore="ContentDescription"/>
 
     <TextView
-        android:id="@+id/titleTextView"
+        android:id="@+id/item_titleTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_weight="1"
-        tools:text="Henri Potier à l'école des sorciers"/>
+        android:layout_marginStart="10dp"/>
 
-</fr.android.androidexercises.BookItemView>
+</fr.android.androidexercises.views.BookItemView>
