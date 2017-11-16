@@ -56,7 +56,7 @@ class LibraryActivity : AppCompatActivity(), OnItemClickedListener<Book> {
         val bookDetailsFragment = BookDetailsFragment()
         val bundle = Bundle()
         bundle.putParcelable(BOOK_KEY, selectedBook)
-        bookDetailsFragment.arguments = bundle
+        bookDetailsFragment.arguments = bundle // put selected book in fragment argument
         return bookDetailsFragment
     }
 }

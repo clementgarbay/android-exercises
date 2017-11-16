@@ -19,18 +19,18 @@ class BookDetailsFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         val view = inflater.inflate(R.layout.book_details_fragment, container, false)
-        book = this.arguments.getParcelable(BOOK_KEY)
+        book = this.arguments.getParcelable(BOOK_KEY) // retrieve book from fragment argument
         return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        if (book != null) {
-            details_titleTextView?.text = book!!.title
-            details_priceTextView?.text = book!!.price
-            details_isbnTextView?.text = book!!.isbn
-            Glide.with(this).load(book!!.cover).into(details_coverImageView)
+        book?.let {
+            details_titleTextView?.text = it.title
+            details_priceTextView?.text = it.price
+            details_isbnTextView?.text = it.isbn
+            Glide.with(this).load(it.cover).into(details_coverImageView)
         }
     }
 
