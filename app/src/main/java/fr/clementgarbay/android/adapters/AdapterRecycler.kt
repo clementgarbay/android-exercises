@@ -6,30 +6,29 @@ import android.view.View
 import android.view.ViewGroup
 import fr.clementgarbay.android.R
 import fr.clementgarbay.android.listeners.OnItemClickedListener
-import fr.clementgarbay.android.models.Book
-import fr.clementgarbay.android.views.BookItemView
+import fr.clementgarbay.android.views.BindableView
 
 /**
  * @author Clément Garbay <contact@clementgarbay.fr>
  */
-class BookAdapterRecycler(
+class AdapterRecycler<T>(
         private val inflater: LayoutInflater,
-        private val books: List<Book>,
-        private val listener: OnItemClickedListener<Book>
-) : RecyclerView.Adapter<BookAdapterRecycler.ViewHolder>() {
+        private val items: List<T>,
+        private val listener: OnItemClickedListener<T>
+) : RecyclerView.Adapter<AdapterRecycler<T>.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(inflater.inflate(R.layout.book_item_view, parent, false))
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val book = books[position]
-        (holder.itemView as BookItemView)
-            .bindView(book) // fill view from book
-            .setOnClickListener { listener.onItemClicked(book) } // add a click listener on each item view
+        val item = items[position]
+        (holder.itemView as BindableView<T>)
+            .bind(item) // fill view from item
+            .setOnClickListener { listener.onItemClicked(item) } // add a click listener on each item view
     }
 
-    override fun getItemCount(): Int = books.size
+    override fun getItemCount(): Int = items.size
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
 }

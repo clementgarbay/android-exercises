@@ -10,7 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import fr.clementgarbay.android.R
-import fr.clementgarbay.android.adapters.BookAdapterRecycler
+import fr.clementgarbay.android.adapters.AdapterRecycler
 import fr.clementgarbay.android.listeners.OnItemClickedListener
 import fr.clementgarbay.android.models.Book
 import fr.clementgarbay.android.services.BooksApi
@@ -21,7 +21,7 @@ import fr.clementgarbay.android.services.BooksApi
 class BookListFragment : Fragment() {
 
     private var books: ArrayList<Book> = ArrayList()
-    private lateinit var adapter: BookAdapterRecycler
+    private lateinit var adapter: AdapterRecycler<Book>
     private lateinit var listener: OnItemClickedListener<Book>
 
     override fun onAttach(context: Context) {
@@ -37,7 +37,7 @@ class BookListFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         // Init book adapter recycler
-        adapter = BookAdapterRecycler(LayoutInflater.from(view.context), books, listener)
+        adapter = AdapterRecycler(LayoutInflater.from(view.context), books, listener)
 
         // Init recycler view
         val recyclerView = view.findViewById<RecyclerView>(R.id.bookListView)
@@ -51,7 +51,7 @@ class BookListFragment : Fragment() {
             BooksApi.getBooks({ books ->
                 refreshBookList(books)
             }, {
-                Toast.makeText(context, "An error occurred when trying to retrieve books.", Toast.LENGTH_LONG).show()
+                Toast.makeText(context, R.string.fetch_books_failure, Toast.LENGTH_LONG).show()
             })
         }
     }
