@@ -26,23 +26,53 @@
                 android:id="@+id/details_titleTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="@dimen/large_margin"
+                android:layout_marginBottom="@dimen/large_margin"
                 android:text="TITLE"
                 android:textSize="20dp" />
 
-            <TextView
-                android:id="@+id/details_priceTextView"
+            <android.support.constraint.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:text="PRICE" />
+                android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/details_isbnTextView"
+                <TextView
+                    android:id="@+id/details_priceLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/label_book_details_price"/>
+
+                <TextView
+                    android:id="@+id/details_priceTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="PRICE"
+                    android:layout_marginStart="@dimen/small_margin"
+                    app:layout_constraintLeft_toRightOf="@+id/details_priceLabel" />
+            </android.support.constraint.ConstraintLayout>
+
+            <android.support.constraint.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:text="ISBN" />
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/small_margin">
+
+                <TextView
+                    android:id="@+id/details_isbnLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/label_book_details_isbn"/>
+
+                <TextView
+                    android:id="@+id/details_isbnTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="ISBN"
+                    android:layout_marginStart="@dimen/small_margin"
+                    app:layout_constraintLeft_toRightOf="@+id/details_isbnLabel" />
+            </android.support.constraint.ConstraintLayout>
 
         </LinearLayout>
 

@@ -3,4 +3,6 @@
     <string name="action_settings">Settings</string>
     <string name="fetch_books_success">Retrieved %s book(s)</string>
     <string name="fetch_books_failure">An error occurred when trying to retrieve books.</string>
+    <string name="label_book_details_price">Prix :</string>
+    <string name="label_book_details_isbn">ISBN :</string>
 </resources>
