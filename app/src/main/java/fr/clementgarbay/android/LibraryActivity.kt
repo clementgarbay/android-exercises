@@ -3,11 +3,14 @@ package fr.clementgarbay.android
 import android.content.res.Configuration
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.widget.Toast
 import fr.clementgarbay.android.fragments.BookDetailsFragment
 import fr.clementgarbay.android.fragments.BookDetailsFragment.Companion.BOOK_KEY
 import fr.clementgarbay.android.fragments.BookListFragment
+import fr.clementgarbay.android.fragments.ListFragment
 import fr.clementgarbay.android.listeners.OnItemClickedListener
 import fr.clementgarbay.android.models.Book
+import fr.clementgarbay.android.services.BooksApi
 import timber.log.Timber
 
 /**
@@ -24,10 +27,12 @@ class LibraryActivity : AppCompatActivity(), OnItemClickedListener<Book> {
         // Plant logger cf. Android Timber
         Timber.plant(Timber.DebugTree())
 
-        // Init screen with book list fragment
-        supportFragmentManager.beginTransaction()
-                .replace(R.id.containerFrameLayout, BookListFragment(), BookListFragment::class.java.simpleName)
-                .commit()
+        BooksApi.getBooks({ books ->
+            // Init screen with book list fragment
+            ListFragment.create<Book>(R.layout.book_list_fragment, R.id.bookListView, ArrayList(books))
+        }, {
+            Toast.makeText(this, "An error occurred when trying to retrieve books.", Toast.LENGTH_LONG).show()
+        })
     }
 
     override fun onItemClicked(item: Book) {
