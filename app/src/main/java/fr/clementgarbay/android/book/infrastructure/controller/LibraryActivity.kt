@@ -4,11 +4,11 @@ import android.content.res.Configuration
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import fr.clementgarbay.android.R
+import fr.clementgarbay.android.book.domain.model.Book
 import fr.clementgarbay.android.book.infrastructure.ui.BookDetailsFragment
 import fr.clementgarbay.android.book.infrastructure.ui.BookDetailsFragment.Companion.BOOK_KEY
 import fr.clementgarbay.android.book.infrastructure.ui.BookListFragment
 import fr.clementgarbay.android.generic.ui.handler.ItemClickedListener
-import fr.clementgarbay.android.book.domain.model.Book
 import timber.log.Timber
 
 /**
@@ -29,9 +29,21 @@ class LibraryActivity : AppCompatActivity(), ItemClickedListener<Book> {
         supportFragmentManager.beginTransaction()
                 .replace(R.id.containerFrameLayout, BookListFragment(), BookListFragment::class.java.simpleName)
                 .commit()
+
+        // If there is a saved state of book, select it
+        if (savedInstanceState?.containsKey(BOOK_KEY) == true) {
+            selectBook(savedInstanceState.getParcelable(BOOK_KEY))
+        }
     }
 
-    override fun onItemClicked(item: Book) {
+    override fun onItemClicked(item: Book) = selectBook(item)
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putParcelable(BOOK_KEY, selectedBook) // save selected book in state
+    }
+
+    private fun selectBook(item: Book) {
         selectedBook = item
         displayBookDetailsFragment()
     }

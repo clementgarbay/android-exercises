@@ -10,10 +10,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import fr.clementgarbay.android.R
-import fr.clementgarbay.android.generic.ui.RecyclerViewAdapter
-import fr.clementgarbay.android.generic.ui.handler.ItemClickedListener
 import fr.clementgarbay.android.book.domain.model.Book
 import fr.clementgarbay.android.book.infrastructure.persistence.api.BooksApi
+import fr.clementgarbay.android.generic.ui.RecyclerViewAdapter
+import fr.clementgarbay.android.generic.ui.handler.ItemClickedListener
 
 /**
  * @author Clément Garbay <contact@clementgarbay.fr>
@@ -45,7 +45,7 @@ class BookListFragment : Fragment() {
         recyclerView.adapter = adapter
 
         // Check if there is a saved state of books
-        if (savedInstanceState != null) {
+        if (savedInstanceState?.containsKey(BOOKS_KEY) == true) {
             refreshBookList(savedInstanceState.getParcelableArrayList(BOOKS_KEY))
         } else { // Otherwise, fetch books from API
             BooksApi.getBooks({ books ->
